@@ -1,0 +1,14 @@
+<div class="container mt-4">
+    <button class="btn btn-primary mb-3" (click)="goBack()">Back to List</button>
+    <div class="card">
+      <img [src]="character.image" class="card-img-top" alt="{{ character.name }}">
+      <div class="card-body">
+        <h5 class="card-title">{{ character.name }}</h5>
+        <p>Status: <span>{{ character.status }}</span></p>
+        <p>Gender: <span>{{ character.gender }}</span></p>
+        <p>Origin: {{ character.origin.name }}</p>
+        <p>Number of Episodes: {{ character.episode.length }}</p>
+      </div>
+    </div>
+  </div>
+  

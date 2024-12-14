@@ -1,0 +1,32 @@
+<div class="container mt-4">
+  <h1>Rick and Morty Characters</h1>
+  <div class="form-group">
+    <input type="text" class="form-control" placeholder="Search characters by names" (input)="onSearch($event)" />
+  </div>
+  <table class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Episodes</th>
+        <th>Origin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let character of characters" (click)="viewDetails(character.id)">
+        <td>{{ character.name }}</td>
+        <td>{{ character.gender }}</td>
+        <td>
+          <button mat-raised-button color="primary" (click)="openModal(character.episode); $event.stopPropagation()">
+            View Episodes ({{ character.episode.length }})
+          </button>
+        </td>
+        <td>{{ character.origin.name }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-pagination [totalItems]="totalCharacters" [pageSize]="pageSize" [currentPage]="currentPage"
+    (pageChange)="onPageChange($event)">
+  </app-pagination>
+</div>
